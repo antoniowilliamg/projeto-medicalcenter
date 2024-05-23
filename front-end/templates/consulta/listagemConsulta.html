@@ -1,0 +1,58 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listagem de Consultas</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="/static/css/consulta/listagemConsulta.css">
+
+    <style>
+        .smaller-font {
+            font-size: 0.8em;
+            /* Adjust the font size as needed */
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <a href="http://127.0.0.7:5500/templates/paginaInicial.html" class="logo"><i
+                class="fas fa-hospital"></i>Clinical
+            HEALTH</a>
+        <a href="http://127.0.0.7:5500/templates/telalogin.html" class="logout">Sair</a>
+    </nav>
+    <div class="container">
+        <h1><i class="far fa-calendar-alt" style="margin-right: 10px;"></i>Agenda de Consultas</h1>
+        <table id="consultasTable">
+            <thead>
+                <tr>
+                    <th>Código Consulta</th>
+                    <th>Código do Médico</th>
+                    <th>Nome do Médico</th>
+                    <th>CRM</th>
+                    <th>Especialidade</th>
+                    <th>Código do Paciente</th>
+                    <th>Nome do Paciente</th>
+                    <th>CPF</th>
+                    <th>Data de Nascimento</th>
+                    <th>Data</th>
+                    <th>Hora</th>
+                    <th>Motivo</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Aqui serão adicionadas as linhas da tabela dinamicamente -->
+            </tbody>
+        </table>
+    </div>
+    <a href="http://127.0.0.7:5500/templates/consulta/agendamentoConsulta.html" id="button_cadastro" class="add-button">Novo
+        Agendamento</a> 
+    <footer>
+        <p>Desenvolvido por <i>CodeNinjas</i></p>
+    </footer>
+
+</body>
+<script src="/static/js/consulta/listagemConsulta.js" type="module"></script>
+
+</html>

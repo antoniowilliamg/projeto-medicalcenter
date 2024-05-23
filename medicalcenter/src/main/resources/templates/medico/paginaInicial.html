@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clinical HEALTH - Site Beta</title>
+    <!-- Adicione o Font Awesome -->
+    <link rel="stylesheet" th:href="@{/css/paginaInicial.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #FAFAFA; /* Fundo mais claro */
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: #0D47A1; /* Azul escuro */
+            overflow: hidden;
+            padding: 10px 20px;
+        }
+
+        .navbar a {
+            float: left;
+            color: #FFFFFF; /* Texto branco */
+            text-decoration: none;
+            font-size: 16px;
+            margin-right: 15px;
+        }
+
+        .navbar a.logo {
+            font-weight: bold;
+            font-size: 22px;
+        }
+
+        .navbar a.logo i {
+            margin-right: 5px;
+        }
+
+        .navbar a.logout {
+            float: right;
+            font-size: 16px;
+        }
+
+        /* Welcome Section */
+        .welcome p{
+            background-color: #E3F2FD; /* Azul claro */
+            margin-top: 0;
+            margin-bottom: 0;
+            text-align: center;
+            height: 15px;
+            font-weight: bold;
+            font-size: 12px;
+        }
+
+        /* Main Content */
+        .section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 10px;
+            overflow-y: auto;
+            max-height: calc(100vh - 200px);
+        }
+
+        .card {
+            background-color: #FFFFFF; /* Branco */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+            width: 150px;
+            height: 150px;
+            padding: 20px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card h3 {
+            color: #0D47A1; /* Azul escuro */
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .card p {
+            color: #757575; /* Cinza escuro */
+            font-size: 12px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0D47A1; /* Azul escuro */
+            color: #FFFFFF; /* Texto branco */
+            text-align: center;
+            padding: 5px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            height: 25px;
+            font-size: 14px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="navbar">
+    <a href="http://localhost:8080/medicos/paginainicial" class="logo"><i class="fas fa-hospital"></i>Clinical HEALTH</a>
+    <a href="http://localhost:8080/medicos/telalogin" class="logout">Sair</a>
+</div>
+
+<div class="welcome">
+    <p>Bem-vindo ao Clinical HEALTH</p>
+</div>
+
+<section class="section">
+    <a href="http://localhost:8080/medicos/paginaEmDesenvolvimento" class="card">
+        <div>
+            <i class="fas fa-users"></i> <!-- Ícone para Gerenciamento de Usuários -->
+            <h3>Gerenciamento de Usuários</h3>
+            <p>Crie, edite e exclua contas de usuários.</p>
+        </div>
+    </a>
+    <a href="http://localhost:8080/medicos/paginaEmDesenvolvimento" class="card">
+        <div>
+            <i class="fas fa-user-injured"></i> <!-- Ícone para Gerenciamento de Pacientes -->
+            <h3>Gerenciamento de Pacientes</h3>
+            <p>Visualize e edite informações dos pacientes.</p>
+        </div>
+    </a>
+    <a href="http://localhost:8080/medicos/cadastro" class="card">
+        <div>
+            <i class="fas fa-user-md"></i> <!-- Ícone para Gerenciamento de Médicos -->
+            <h3>Gerenciamento de Médicos</h3>
+            <p>Adicione, edite e remova informações de médicos.</p>
+        </div>
+    </a>
+    <a href="http://localhost:8080/medicos/paginaEmDesenvolvimento" class="card">
+        <div>
+            <i class="far fa-calendar-alt"></i> <!-- Ícone para Agendamento de Consultas -->
+            <h3>Agendamento de Consultas</h3>
+            <p>Agende consultas para os pacientes.</p>
+        </div>
+    </a>
+</section>
+
+<section class="section">
+    <a href="http://localhost:8080/medicos/paginaEmDesenvolvimento" class="card">
+        <div>
+            <i class="fas fa-cogs"></i> <!-- Ícone para Adm Sistemas -->
+            <h3>Adm Sistemas</h3>
+            <p>Gerencie os aspectos do sistema.</p>
+        </div>
+    </a>
+    <a href="http://localhost:8080/medicos/paginaEmDesenvolvimento" class="card">
+        <div>
+            <i class="far fa-file-alt"></i> <!-- Ícone para Registros do Sistema -->
+            <h3>Registros do Sistema</h3>
+            <p>Acesse prontuários eletrônicos dos pacientes.</p>
+        </div>
+    </a>
+    <a href="http://localhost:8080/medicos/paginaEmDesenvolvimento" class="card">
+        <div>
+            <i class="fas fa-chart-pie"></i> <!-- Ícone para Relatórios -->
+            <h3>Relatórios</h3>
+            <p>Gere relatórios sobre atividades do sistema.</p>
+        </div>
+    </a>
+    <a href="http://localhost:8080/medicos/paginaEmDesenvolvimento" class="card">
+        <div>
+            <i class="fas fa-cog"></i> <!-- Ícone para Configurações do Sistema -->
+            <h3>Configurações do Sistema</h3>
+            <p>Ajuste configurações do sistema conforme necessário.</p>
+        </div>
+    </a>
+</section>
+
+<footer>
+    <p>Desenvolvido por <i>CodeNinjas</i></p>
+</footer>
+
+</body>
+</html>

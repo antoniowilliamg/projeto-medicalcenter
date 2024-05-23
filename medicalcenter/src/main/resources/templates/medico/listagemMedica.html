@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listagem de Médicos</title>
+    <link rel="stylesheet" th:href="@{/css/listagemMedica.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+
+<nav class="navbar">
+    <a href="http://localhost:8080/medicos/paginainicial" class="logo"><i class="fas fa-hospital"></i>Clinical HEALTH</a>
+    <a href="http://localhost:8080/medicos/telalogin" class="logout">Sair</a>
+</nav>
+
+<div class="container">
+    <h1><i class="fas fa-user-md icon"></i>Listagem de Médicos</h1>
+    <div class="table-container">
+        <table>
+            <thead>
+            <tr>
+                <th>Código</th>
+                <th>Nome</th>
+                <th>CRM</th>
+                <th>Especialidade</th>
+                <th>Telefone</th>
+                <th>Endereco</th>
+                <th>E-mail</th>
+                <th>Data de Nascimento</th>
+                <th>Data de Contratação</th>
+                <th>Ações</th> <!-- Nova coluna para as ações -->
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="medico : ${listagemMedicos}">
+                <td th:text="${medico.cdMedico}"></td>
+                <td th:text="${medico.nome}"></td>
+                <td th:text="${medico.crm}"></td>
+                <td th:text="${medico.especialidade}"></td>
+                <td th:text="${medico.telefone}"></td>
+                <td th:text="${medico.endereco}"></td>
+                <td th:text="${medico.email}"></td>
+                <td th:text="${medico.dataNascimento}"></td>
+                <td th:text="${medico.dataContratacao}"></td>
+                <td>
+                    <a th:href="@{/medicos/atualizar(cdMedico=${medico.cdMedico})}" class="action-button edit-button"><i class="fas fa-edit icon"></i>Editar</a>
+                    <a th:href="@{/medicos/deletar(cdMedico=${medico.cdMedico})}" class="action-button delete-button"><i class="fas fa-trash-alt icon"></i>Excluir</a>
+                </td>
+            </tr>
+            <!-- Adicione mais linhas conforme necessário -->
+            </tbody>
+        </table><a href="http://localhost:8080/medicos/cadastro" class="add-button">Novo Cadastro</a>
+    </div>
+
+    <footer>
+        <p>Desenvolvido por <i>CodeNinjas</i></p>
+    </footer>
+
+</body>
+</html>

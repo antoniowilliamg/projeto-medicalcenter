@@ -1,0 +1,39 @@
+
+/* Estilos CSS para o card personalizado */
+.card-in-maintenance {
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 10px auto;
+    width: 80%;
+    max-width: 400px;
+    padding: 20px;
+    margin-top: 200px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    align-items: center;
+}
+
+.card-in-maintenance:hover {
+    transform: scale(1.05);
+}
+
+.card-in-maintenance h3 {
+    color: #0D47A1; /* Azul escuro */
+    margin-bottom: 8px;
+    font-size: 28px; /* Aumentando o tamanho da fonte */
+    font-weight: bold; /* Tornando o título em negrito */
+}
+
+.card-in-maintenance p {
+    color: red; /* Cinza escuro */
+    font-weight: bold;
+    font-size: 20px; /* Aumentando o tamanho da fonte */
+}
+
+/* Estilos CSS para o ícone de manutenção */
+.maintenance-icon {
+    font-size: 100px; /* Tamanho do ícone */
+    color: #000000; /* Cor laranja */
+    margin-top: 30px;
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listagem de Médicos</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="/static/css/medico/listagemMedica.css">
+    
+    <style>
+        .smaller-font {
+            font-size: 0.8em; /* Adjust the font size as needed */
+        }
+    </style>
+</head>
+
+<body class="smaller-font">
+
+    <nav class="navbar">
+        <a href="http://127.0.0.7:5500/templates/paginaInicial.html" class="logo"><i class="fas fa-hospital"></i>Clinical
+            HEALTH</a>
+        <a href="http://127.0.0.7:5500/templates/telalogin.html" class="logout">Sair</a>
+    </nav>
+
+    <div class="container">
+        <h1><i class="fas fa-user-md icon"></i>Listagem de Médicos</h1>
+        <div class="table-container">
+            <table id="medicos-table">
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Nome</th>
+                        <th>CRM</th>
+                        <th>Especialidade</th>
+                        <th>Telefone</th>
+                        <th>Endereco</th>
+                        <th>E-mail</th>
+                        <th>Data de Nascimento</th>
+                        <th>Data de Contratação</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+            <a href="http://127.0.0.7:5500/templates/medico/cadastroMedico.html" id="button_cadastro" class="add-button">Novo
+                Cadastro</a>    
+</body>
+<script src="/static/js/medico/listagemMedica.js" type="module"></script>
+
+</html>

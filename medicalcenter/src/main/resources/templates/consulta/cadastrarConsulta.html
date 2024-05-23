@@ -1,0 +1,142 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="pt-BR">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <title>Agendar Consulta</title>-->
+<!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->
+<!--</head>-->
+<!--<body>-->
+
+<!--<h1>Agendar Consulta</h1>-->
+
+<!--<form th:action="@{/consulta}" method="post">-->
+<!--    <label for="cd_medico">Código do Médico:</label>-->
+<!--    <input type="text" id="cd_medico" name="cdMedico" required><br><br>-->
+
+<!--    <label for="nome_medico">Nome do Médico:</label>-->
+<!--    <input type="text" id="nome_medico" name="nome" readonly><br><br>-->
+
+<!--    <label for="cd_paciente">Código do Paciente:</label>-->
+<!--    <input type="text" id="cd_paciente" name="cdPaciente" required><br><br>-->
+
+<!--    <label for="nome">Nome do Paciente:</label>-->
+<!--    <input type="text" id="nome" name="nome" readonly><br><br>-->
+
+<!--    <label for="dataConsulta">Data da Consulta:</label>-->
+<!--    <input type="date" id="dataConsulta" name="dataConsulta" required><br><br>-->
+
+<!--    <label for="descricao">Descrição:</label>-->
+<!--    <input type="text" id="descricao" name="descricao" required><br><br>-->
+
+<!--    <button type="submit">Agendar Consulta</button>-->
+<!--</form>-->
+
+<!--<script>-->
+<!--    $(document).ready(function(){-->
+<!--        $('#cd_medico').on('input', function() {-->
+<!--            var cd_medico = $(this).val();-->
+<!--            $.ajax({-->
+<!--                url: '/buscarMedico',-->
+<!--                method: 'POST',-->
+<!--                data: {codigo: cd_medico},-->
+<!--                success: function(data) {-->
+<!--                    $('#nome_medico').val(data.nome);-->
+<!--                }-->
+<!--            });-->
+<!--        });-->
+
+<!--        $('#cd_paciente').on('input', function() {-->
+<!--            var cd_paciente = $(this).val();-->
+<!--            $.ajax({-->
+<!--                url: '/buscarPaciente',-->
+<!--                method: 'POST',-->
+<!--                data: {codigo: cd_paciente},-->
+<!--                success: function(data) {-->
+<!--                    $('#nome_paciente').val(data.nome);-->
+<!--                }-->
+<!--            });-->
+<!--        });-->
+<!--    });-->
+<!--</script>-->
+
+<!--</body>-->
+<!--</html>-->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Agendar Consulta</title>
+</head>
+<body>
+<h2>Agendar Consulta</h2>
+<form action="/consultas/agendarConsulta" method="GET">
+    <label for="cdMedico">Código do Médico:</label>
+    <input type="text" id="cdMedico" name="cdMedico">
+    <input type="text" id="nomeMedico" name="nome" readonly><br>
+
+    <label for="cdPaciente">Código do Paciente:</label>
+    <input type="text" id="cdPaciente" name="cdPaciente">
+    <input type="text" id="nomePaciente" name="nome" readonly><br>
+
+    <!-- Outros campos do formulário -->
+
+    <input type="submit" value="Agendar Consulta">
+</form>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#cdMedico').on('input', function() {
+            var cdMedico = $(this).val();
+            if (cdMedico !== '') {
+                $.ajax({
+                    url: '/medicos/buscarMedico?cdMedico=' + cdMedico,
+                    type: 'POST',
+                    success: function(data) {
+                        $('#nomeMedico').val(data.nome); // Preenche o campo de nome do médico
+                    }
+                });
+            } else {
+                $('#nomeMedico').val(''); // Limpa o campo de nome do médico se o código estiver vazio
+            }
+        });
+
+        $('#cdPaciente').on('input', function() {
+            var cdPaciente = $(this).val();
+            if (cdPaciente !== '') {
+                $.ajax({
+                    url: '/pacientes/buscarPaciente?cdPaciente=' + cdPaciente,
+                    type: 'POST',
+                    success: function(data) {
+                        $('#nomePaciente').val(data.nome); // Preenche o campo de nome do paciente
+                    }
+                });
+            } else {
+                $('#nomePaciente').val(''); // Limpa o campo de nome do paciente se o código estiver vazio
+            }
+        });
+    });
+</script>
+
+
+<!--<script th:inline="javascript">-->
+<!--        function buscarMedico() {-->
+<!--            var codigo = document.getElementById("codigoMedico").value;-->
+<!--            fetch("http://localhost:8080/medicos/buscarMedico?cdMedico=" + codigo)-->
+<!--                .then(response => response.json())-->
+<!--                .then(data => {-->
+<!--                    document.getElementById("nomeMedico").value = data.nome;-->
+<!--                });-->
+<!--        }-->
+
+<!--        function buscarPaciente() {-->
+<!--            var codigo = document.getElementById("codigoPaciente").value;-->
+<!--            fetch("http://localhost:8080/pacientes/buscarPaciente?cdPaciente=" + codigo)-->
+<!--                .then(response => response.json())-->
+<!--                .then(data => {-->
+<!--                    document.getElementById("nomePaciente").value = data.nome;-->
+<!--                });-->
+<!--        }-->
+<!--    </script>-->
+</body>
+</html>

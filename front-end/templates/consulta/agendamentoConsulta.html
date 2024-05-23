@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>Agendamento de Consulta</title>
+    <link rel="stylesheet" href="/static/css/consulta/aGendamentoConsulta.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <a href="http://127.0.0.7:5500/templates/paginaInicial.html" class="logo"><i class="fas fa-hospital"></i>Clinical HEALTH</a>
+        <a href="http://127.0.0.7:5500/templates//telalogin.html" class="logout">Sair</a>
+    </nav>
+    <div class="container">
+        <h1><i class="far fa-calendar-alt" style="margin-right: 8px;"></i>Agendamento de Consulta</h1>
+        <form id="consultaForm">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="cdMedico">Código do Médico:</label>
+                    <input type="text" id="cdMedico" name="cdMedico" placeholder="Digite o código do médico">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="crm">CRM:</label>
+                    <input type="text" id="crm" name="crm" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="nomeMedico">Nome do Médico:</label>
+                    <input type="text" id="nomeMedico" name="nomeMedico" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="especialidade">Especialidade:</label>
+                    <input type="text" id="especialidade" name="especialidade" readonly>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="cpfPaciente">CPF do Paciente:</label>
+                    <input type="text" id="cpfPaciente" name="cpfPaciente" placeholder="Digite o CPF do paciente">
+                </div>
+
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="cdPaciente">Codigo do Paciente:</label>
+                    <input type="text" id="cdPaciente" name="cdPaciente" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="nome">Nome do Paciente:</label>
+                    <input type="text" id="nomePaciente" name="nome" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="dataNascimento">Data de Nasicimento:</label>
+                    <input type="text" id="dataNascimento" name="dataNascimento" readonly>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="data">Data:</label>
+                    <input type="text" id="data" name="data">
+                </div>
+                <div class="form-group">
+                    <label for="hora">Hora:</label>
+                    <input type="text" id="hora" name="hora">
+                </div>
+                <div class="form-group">
+                    <label for="motivoConsulta">Motivo da Consulta:</label>
+                    <input type="text" id="motivoConsulta" name="motivoConsulta">
+                </div>
+            </div>
+            <input type="submit" value="Agendar Consulta">
+        </form>
+    </div>
+
+    <script>
+        async function buscarMedico() {
+            const codigoMedico = document.getElementById('cdMedico').value;
+            try {
+                const response = await fetch(`http://localhost:8080/medicos/${codigoMedico}`);
+                const data = await response.json();
+                if (response.ok) {
+                    document.getElementById('crm').value = data.crm;
+                    document.getElementById('nomeMedico').value = data.nome;
+                    document.getElementById('especialidade').value = data.especialidade;
+                } else {
+                    alert(data.message);
+                }
+            } catch (error) {
+                console.error('Erro ao buscar médico:', error);
+                alert('Erro ao buscar médico');
+            }
+        }
+
+        async function buscarPaciente() {
+            const cpfPaciente = document.getElementById('cpfPaciente').value;
+            try {
+                const response = await fetch(`http://localhost:8080/pacientes/cpf/${cpfPaciente}`);
+                const data = await response.json();
+                if (response.ok) {
+                    document.getElementById('cdPaciente').value = data.cdPaciente;
+                    document.getElementById('nomePaciente').value = data.nome;
+                    document.getElementById('dataNascimento').value = data.dataNascimento;
+                } else {
+                    alert(data.message);
+                }
+            } catch (error) {
+                console.error('Erro ao buscar paciente:', error);
+                alert('Erro ao buscar paciente');
+            }
+        }
+
+        document.getElementById('cdMedico').addEventListener('keydown', function (event) {
+            if (event.key === "Enter") {
+                event.preventDefault(); // Evita o envio do formulário
+                buscarMedico();
+            }
+        });
+
+        document.getElementById('cpfPaciente').addEventListener('keydown', function (event) {
+            if (event.key === "Enter") {
+                event.preventDefault(); // Evita o envio do formulário
+                buscarPaciente();
+            }
+        });
+
+        // Atualizar campo de data da consulta com a data atual
+        const dataAtual = new Date().toISOString().split('T')[0];
+        document.getElementById('data').value = dataAtual;
+
+        // Atualizar campo de hora da consulta com a hora atual (arredondada para o próximo quarto de hora)
+        const horaAtual = new Date();
+        horaAtual.setMinutes(Math.ceil(horaAtual.getMinutes() / 15) * 15); // Arredonda para o próximo quarto de hora
+        const horaFormatada = horaAtual.toTimeString().split(' ')[0];
+        document.getElementById('hora').value = horaFormatada;
+
+    </script>
+    <footer>
+        <p>Desenvolvido por <i>CodeNinjas</i></p>
+    </footer>
+</body>
+<script src="/static/js/consulta/agendarConsulta.js" type="module"></script>
+
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Médico</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="/static/css/cadastro.css">
+
+</head>
+<body>
+<nav class="navbar">
+    <a href="http://127.0.0.7:5500/templates/paginaInicial.html" class="logo"><i class="fas fa-hospital"></i>Clinical HEALTH</a>
+    <a href="http://127.0.0.7:5500/templates//telalogin.html" class="logout">Sair</a>
+</nav>
+
+<div class="container">
+   
+    <h1><i class="fas fa-user-md"></i> Cadastro de Médico</h1>
+    <form id="medico-form" method="POST">
+        <div class="form-row">
+            <div class="form-group">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" required>
+            </div>
+            <div class="form-group">
+                <label for="crm">CRM:</label>
+                <input type="text" id="crm" name="crm" required>
+            </div>
+            <div class="form-group">
+                <label for="especialidade">Especialidade:</label>
+                <select id="especialidade" name="especialidade" required>
+                    <option value="Cardiologia">Cardiologia</option>
+                    <option value="Clínica Geral">Clínica Geral</option>
+                    <option value="Dermatologia">Dermatologia</option>
+                    <option value="Endocrinologia">Endocrinologia</option>
+                    <option value="Ginecologia">Ginecologia</option>
+                    <option value="Neurologia">Neurologia</option>
+                    <option value="Oftalmologia">Oftalmologia</option>
+                    <option value="Ortopedia">Ortopedia</option>
+                    <option value="Pediatria">Pediatria</option>
+                    <option value="Psiquiatria">Psiquiatria</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group">
+                <label for="telefone">Telefone:</label>
+                <input type="tel" id="telefone" name="telefone" required>
+            </div>
+            <div class="form-group">
+                <label for="endereco">Endereço:</label>
+                <input type="text" id="endereco" name="endereco" required>
+            </div>
+            <div class="form-group">
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group">
+                <label for="dataNascimento">Data de Nascimento:</label>
+                <input type="date" id="dataNascimento" name="dataNascimento" required>
+            </div>
+            <div class="form-group">
+                <label for="dataContratacao">Data de Contratação:</label>
+                <input type="date" id="dataContratacao" name="dataContratacao" required>
+            </div>
+        </div>
+        
+        <input type="submit" value="Cadastrar">
+    </form>
+</div>
+
+<footer>
+    <p>Desenvolvido por <i>CodeNinjas</i></p>
+</footer>
+
+</body>
+<script src="/static/js/cadastro.js" type="module"></script>
+</html>
+
+

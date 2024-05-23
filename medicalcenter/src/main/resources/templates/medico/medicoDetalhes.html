@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do Médico</title>
+</head>
+<body>
+<h1>Detalhes do Médico</h1>
+<form action="/medicos/detalhes" method="get">
+    <label for="cdMedico">Código do Médico:</label>
+    <input type="text" id="cdMedico" name="cdMedico" required>
+    <button type="submit">Buscar</button>
+</form>
+<div th:if="${medico != null}">
+    <p><strong>Nome:</strong> <span th:text="${medico.nome}"></span></p>
+    <p><strong>CRM:</strong> <span th:text="${medico.crm}"></span></p>
+    <p><strong>Especialidade:</strong> <span th:text="${medico.especialidade}"></span></p>
+</div>
+<div th:if="${erro != null}">
+    <p th:text="${erro}"></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+
+
+.card-in-maintenance {
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 10px auto;
+    width: 80%;
+    max-width: 400px;
+    padding: 20px;
+    margin-top: 200px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    align-items: center;
+}
+
+.card-in-maintenance:hover {
+    transform: scale(1.05);
+}
+
+.card-in-maintenance h3 {
+    margin-bottom: 8px;
+    font-size: 28px; 
+    font-weight: bold;
+}
+
+.card-in-maintenance p {
+    color: red;
+    font-weight: bold;
+    font-size: 20px; 
+}
+
+
+.maintenance-icon {
+    font-size: 100px; 
+    color: #000000; 
+    margin-top: 30px;
+}

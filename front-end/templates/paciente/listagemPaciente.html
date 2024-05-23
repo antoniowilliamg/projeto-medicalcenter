@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listagem de Pacientes</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="/static/css/paciente/listagemPaciente.css">
+    
+   
+</head>
+
+<body class="smaller-font">
+
+    <nav class="navbar">
+        <a href="http://127.0.0.7:5500/templates/paginaInicial.html" class="logo"><i class="fas fa-hospital"></i>Clinical
+            HEALTH</a>
+        <a href="http://127.0.0.7:5500/templates/telalogin.html" class="logout">Sair</a>
+    </nav>
+
+    <div class="container">
+        <h1><i class="fas fa-user-injured"></i>Listagem de Pacientes</h1>
+        <div class="table-container">
+            <table id="pacientes-table">
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Nome</th>
+                        <th>CPF</th>
+                        <th>Data de Nascimento</th>
+                        <th>Endereço</th>
+                        <th>CEP</th>
+                        <th>E-mail</th>
+                        <th>Telefone</th>
+                        <th>ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+            <a href="http://127.0.0.7:5500/templates/paciente/cadastroPaciente.html" id="button_cadastro" class="add-button">Novo
+                Cadastro</a>    
+</body>
+<script src="/static/js/paciente/listagemPacientes.js" type="module"></script>
+
+</html>
